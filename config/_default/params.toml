@@ -1,0 +1,45 @@
+colorScheme = "sjiahub"
+defaultAppearance = "light"
+autoSwitchAppearance = false
+
+description = "A resource hub for families, educators, and advocates navigating systemic juvenile idiopathic arthritis (sJIA). Learn about sJIA, find resources, and discover our children's book."
+
+[header]
+  logo = "images/logo-mark.webp"
+  logoDark = "images/logo-mark.webp"
+
+mainSections = []
+showRecent = false
+showRecentItems = 0
+
+enableSearch = false
+enableCodeCopy = false
+
+[homepage]
+  layout = "custom"
+  showRecent = false
+
+[article]
+  showDate = false
+  showViews = false
+  showLikes = false
+  showAuthor = false
+  showBreadcrumbs = true
+  showDraftLabel = false
+  showEdit = false
+  showReadingTime = false
+  showTableOfContents = true
+  showTaxonomies = false
+  showWordCount = false
+  showSummary = false
+  showPagination = false
+
+[list]
+  showBreadcrumbs = true
+  showTableOfContents = false
+  showSummary = false
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = false
+  showScrollToTop = true

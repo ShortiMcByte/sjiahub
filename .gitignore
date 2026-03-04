@@ -1,0 +1,8 @@
+public/
+resources/
+.hugo_build.lock
+node_modules/
+*.png
+*.webp
+*.ico
+!static/images/.gitkeep

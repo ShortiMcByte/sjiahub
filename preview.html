@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJIAHub — Design Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #fafaf9; color: #1c1917; }
+
+  /* Palette chips */
+  .palette { display: flex; gap: 12px; padding: 24px; flex-wrap: wrap; background: #fff; border-bottom: 1px solid #e7e5e4; }
+  .chip { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; color: #78716c; }
+  .chip-swatch { width: 80px; height: 50px; border-radius: 8px; }
+  .chip-label { font-weight: 600; font-size: 12px; color: #1c1917; }
+
+  /* Nav */
+  nav { background: #0f766e; color: white; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+  .nav-brand span { color: #f59e0b; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; opacity: 0.9; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #134e4a 100%); color: white; padding: 80px 48px; text-align: center; }
+  .hero h1 { font-size: 48px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; }
+  .hero h1 em { color: #f59e0b; font-style: normal; }
+  .hero p { font-size: 20px; opacity: 0.9; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; }
+  .btn-primary { background: #f59e0b; color: #1c1917; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-block; margin: 0 8px; }
+  .btn-outline { border: 2px solid white; color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 16px; text-decoration: none; display: inline-block; margin: 0 8px; }
+
+  /* Feature cards */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 56px 48px; max-width: 1100px; margin: 0 auto; }
+  .card { background: white; border-radius: 12px; padding: 32px; box-shadow: 0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05); border-top: 4px solid #0f766e; }
+  .card.accent { border-top-color: #f59e0b; }
+  .card-icon { font-size: 36px; margin-bottom: 16px; }
+  .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #0f766e; }
+  .card.accent h3 { color: #b45309; }
+  .card p { font-size: 15px; color: #57534e; line-height: 1.6; margin-bottom: 20px; }
+  .card-link { font-size: 14px; font-weight: 600; color: #0f766e; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+  .card.accent .card-link { color: #b45309; }
+
+  /* Book section */
+  .book-section { background: #f0fdfa; border-top: 1px solid #ccfbf1; border-bottom: 1px solid #ccfbf1; padding: 56px 48px; display: flex; align-items: center; gap: 48px; max-width: 1100px; margin: 0 auto; }
+  .book-cover { width: 180px; min-width: 180px; height: 240px; background: linear-gradient(160deg, #0f766e, #134e4a); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; font-weight: 700; font-size: 14px; padding: 20px; line-height: 1.4; box-shadow: 4px 4px 20px rgba(0,0,0,.2); }
+  .book-copy h2 { font-size: 30px; font-weight: 800; margin-bottom: 12px; }
+  .book-copy h2 em { color: #0f766e; font-style: normal; }
+  .book-copy p { color: #57534e; line-height: 1.7; margin-bottom: 24px; font-size: 16px; }
+  .waitlist-row { display: flex; gap: 8px; }
+  .waitlist-row input { flex: 1; padding: 12px 16px; border: 1.5px solid #d6d3d1; border-radius: 8px; font-size: 15px; max-width: 300px; }
+  .waitlist-row button { background: #0f766e; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; }
+
+  /* Resources preview */
+  .resources { padding: 56px 48px; max-width: 1100px; margin: 0 auto; }
+  .resources h2 { font-size: 28px; font-weight: 800; margin-bottom: 32px; }
+  .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .resource-cat { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .resource-cat h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #0f766e; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #ccfbf1; }
+  .resource-cat ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .resource-cat li { font-size: 14px; color: #0f766e; }
+  .resource-cat li::before { content: "→ "; color: #f59e0b; font-weight: 700; }
+
+  /* Footer */
+  footer { background: #1c1917; color: #a8a29e; text-align: center; padding: 32px; font-size: 13px; margin-top: 48px; }
+  footer strong { color: white; }
+
+  .section-wrapper { max-width: 1100px; margin: 0 auto; }
+
+  .label { background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: .5px; display: inline-block; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<!-- PALETTE REFERENCE -->
+<div class="palette">
+  <div class="chip">
+    <div class="chip-swatch" style="background:#0f766e"></div>
+    <div class="chip-label">Primary Teal</div>
+    <div>#0f766e</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#0d9488"></div>
+    <div class="chip-label">Teal Light</div>
+    <div>#0d9488</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#134e4a"></div>
+    <div class="chip-label">Teal Dark</div>
+    <div>#134e4a</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#ccfbf1"></div>
+    <div class="chip-label">Teal Mist</div>
+    <div>#ccfbf1</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#f59e0b"></div>
+    <div class="chip-label">Accent Amber</div>
+    <div>#f59e0b</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#fef3c7"></div>
+    <div class="chip-label">Amber Light</div>
+    <div>#fef3c7</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#fafaf9"></div>
+    <div class="chip-label">Background</div>
+    <div>#fafaf9</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#1c1917; border: 1px solid #e7e5e4;"></div>
+    <div class="chip-label">Text Dark</div>
+    <div>#1c1917</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">SJIA<span>Hub</span></div>
+  <div class="nav-links">
+    <span>About sJIA</span>
+    <span>The Book</span>
+    <span>Resources</span>
+    <span>Our Story</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="label" style="background:rgba(245,158,11,.2); color:#fef3c7;">sJIAHub.com</p>
+  <h1>Understand it.<br><em>Live fully.</em></h1>
+  <p>A hub for families, educators, and advocates navigating systemic juvenile idiopathic arthritis.</p>
+  <a href="#" class="btn-primary">Get the Book</a>
+  <a href="#" class="btn-outline">Learn About sJIA</a>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">🧬</div>
+    <h3>Learn About sJIA</h3>
+    <p>Understand what systemic juvenile idiopathic arthritis is, how it affects kids, and why early diagnosis matters.</p>
+    <a href="#" class="card-link">Start here →</a>
+  </div>
+  <div class="card accent">
+    <div class="card-icon">📖</div>
+    <h3>Corbin and the Helpers Inside His Body</h3>
+    <p>A picture book that helps children, classmates, and educators understand sJIA in simple, hopeful terms.</p>
+    <a href="#" class="card-link">Join the waitlist →</a>
+  </div>
+  <div class="card">
+    <div class="card-icon">🔗</div>
+    <h3>Resources</h3>
+    <p>Curated links to medical organizations, advocacy groups, school tools, and anti-inflammatory diet guidance.</p>
+    <a href="#" class="card-link">Browse resources →</a>
+  </div>
+</div>
+
+<!-- BOOK SECTION -->
+<div style="background:#f0fdfa; border-top:1px solid #ccfbf1; border-bottom:1px solid #ccfbf1; padding: 56px 48px;">
+  <div class="book-section" style="padding:0;">
+    <div class="book-cover">Corbin and the Helpers Inside His Body<br><br><small>A story about sJIA</small></div>
+    <div class="book-copy">
+      <div class="label">Coming Soon</div>
+      <h2>The book we <em>needed</em> didn't exist. So we wrote it.</h2>
+      <p>When Corbin returned to school on high-dose steroids and classmates didn't understand why he looked different, we searched for a book to help explain sJIA. We couldn't find one. So we wrote <em>Corbin and the Helpers Inside His Body</em>, a picture book for children, families, and educators navigating sJIA together.</p>
+      <div class="waitlist-row">
+        <input type="email" placeholder="your@email.com">
+        <button>Notify Me</button>
+      </div>
+      <p style="font-size:13px; color:#78716c; margin-top:10px; margin-bottom:0;">We'll email you when it's available. No spam, ever.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESOURCES PREVIEW -->
+<div class="resources">
+  <h2>Resources</h2>
+  <div class="resource-grid">
+    <div class="resource-cat">
+      <h4>Medical Organizations</h4>
+      <ul>
+        <li>CARRA (Childhood Arthritis & Rheumatology Research Alliance)</li>
+        <li>American College of Rheumatology</li>
+        <li>NIH / NIAMS</li>
+      </ul>
+    </div>
+    <div class="resource-cat">
+      <h4>Patient Advocacy</h4>
+      <ul>
+        <li>Arthritis Foundation</li>
+        <li>sJIA Foundation</li>
+        <li>AARDA</li>
+      </ul>
+    </div>
+    <div class="resource-cat">
+      <h4>School & Educator Resources</h4>
+      <ul>
+        <li>Explaining sJIA to teachers</li>
+        <li>School accommodation guide</li>
+        <li>Arthritis Foundation school tools</li>
+      </ul>
+    </div>
+    <div class="resource-cat">
+      <h4>Anti-Inflammatory Diet</h4>
+      <ul>
+        <li>Mediterranean diet basics</li>
+        <li>Foods that reduce inflammation</li>
+        <li>Meal planning for kids</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>SJIAHub.com</strong><br><br>
+  Understand it. Manage it. Live fully.<br><br>
+  Not a substitute for medical advice. Always consult your child's care team.
+</footer>
+
+</body>
+</html>

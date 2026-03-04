@@ -1,0 +1,53 @@
+{{/* Waitlist form — context: "home", "book" */}}
+{{ $btnText := "Notify Me When Available" }}
+{{ if eq .context "book" }}{{ $btnText = "Join the Waitlist" }}{{ end }}
+
+<form class="waitlist-form" id="waitlist-{{ .context }}">
+  <input type="email" name="email" placeholder="your@email.com" required>
+  <button type="submit">{{ $btnText }}</button>
+  {{/* Honeypot */}}
+  <div style="position:absolute;left:-5000px;" aria-hidden="true">
+    <input type="text" name="b_trap" tabindex="-1" value="">
+  </div>
+</form>
+<p class="waitlist-note">We'll email you when it's available. No spam, ever.</p>
+<div class="waitlist-status" id="waitlist-status-{{ .context }}"></div>
+
+<script>
+(function() {
+  var form = document.getElementById('waitlist-{{ .context }}');
+  var status = document.getElementById('waitlist-status-{{ .context }}');
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var email = form.querySelector('[name="email"]').value;
+    var honeypot = form.querySelector('[name="b_trap"]').value;
+    if (honeypot) return;
+    var btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      var data = await res.json();
+      if (data.success) {
+        status.textContent = "You're on the list! We'll be in touch.";
+        status.className = 'waitlist-status success';
+        form.reset();
+      } else {
+        status.textContent = data.message || 'Something went wrong. Try again.';
+        status.className = 'waitlist-status error';
+      }
+    } catch(err) {
+      status.textContent = 'Network error. Please try again.';
+      status.className = 'waitlist-status error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '{{ $btnText }}';
+    }
+  });
+})();
+</script>

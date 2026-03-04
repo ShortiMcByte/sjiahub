@@ -1,0 +1,25 @@
+baseURL = "https://sjiahub.com/"
+languageCode = "en"
+title = "SJIAHub"
+theme = "congo"
+
+[pagination]
+  pagerSize = 10
+
+[sitemap]
+  changeFreq = "weekly"
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[services]
+  [services.googleAnalytics]
+    id = ""
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false

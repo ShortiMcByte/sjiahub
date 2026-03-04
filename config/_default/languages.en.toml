@@ -1,0 +1,18 @@
+languageName = "English"
+languageCode = "en"
+weight = 1
+
+title = "SJIAHub"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  description = "A resource hub for families, educators, and advocates navigating systemic juvenile idiopathic arthritis (sJIA)."
+
+  [params.header]
+    logo = "images/logo-mark.webp"
+
+  [params.author]
+    name = "SJIAHub"

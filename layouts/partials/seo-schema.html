@@ -1,0 +1,64 @@
+{{/* Organization schema — homepage only */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SJIAHub",
+  "url": "https://sjiahub.com/",
+  "logo": "https://sjiahub.com/images/og-image.webp",
+  "description": "A resource hub for families, educators, and advocates navigating systemic juvenile idiopathic arthritis (sJIA).",
+  "founder": { "@type": "Person", "name": "Andrew Phebus" }
+}
+</script>
+{{ end }}
+
+{{/* FAQPage schema — defined per page via front matter faq array */}}
+{{ with .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $i, $qa := . }}{{ if $i }},{{ end }}{
+      "@type": "Question",
+      "name": {{ $qa.q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $qa.a | jsonify }}
+      }
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+{{/* Speakable schema — all content pages */}}
+{{ if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "article p:first-of-type"]
+  },
+  "url": {{ .Permalink | jsonify }}
+}
+</script>
+{{ end }}
+
+{{/* OG and Twitter meta */}}
+{{ $ogImage := "/images/og-image.webp" }}
+{{ with .Params.featured_image }}{{ $ogImage = . }}{{ end }}
+<meta property="og:title" content="{{ .Title }} | SJIAHub">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage | strings.TrimPrefix "/" }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }} | SJIAHub">
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ $ogImage | strings.TrimPrefix "/" }}">
+{{ with .Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">

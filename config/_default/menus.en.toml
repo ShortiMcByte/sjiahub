@@ -1,0 +1,19 @@
+[[main]]
+  name = "About sJIA"
+  pageRef = "about-sjia"
+  weight = 10
+
+[[main]]
+  name = "The Book"
+  pageRef = "book"
+  weight = 20
+
+[[main]]
+  name = "Resources"
+  pageRef = "resources"
+  weight = 30
+
+[[main]]
+  name = "Our Story"
+  pageRef = "our-story"
+  weight = 40

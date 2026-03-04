@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+{{/* Hero */}}
+<section class="sjia-hero">
+  <h1>Understand it.<br><em>Live fully.</em></h1>
+  <p>A hub for families, educators, and advocates navigating systemic juvenile idiopathic arthritis.</p>
+  <div class="sjia-hero-buttons">
+    <a href="/book/" class="btn-primary">Get the Book</a>
+    <a href="/about-sjia/" class="btn-outline">Learn About sJIA</a>
+  </div>
+</section>
+
+{{/* Feature cards */}}
+<div class="sjia-cards">
+  <div class="sjia-card">
+    <div class="sjia-card-icon">🧬</div>
+    <h3>Learn About sJIA</h3>
+    <p>Understand what systemic juvenile idiopathic arthritis is, how it affects kids, and why early diagnosis matters.</p>
+    <a href="/about-sjia/" class="sjia-card-link">Start here →</a>
+  </div>
+  <div class="sjia-card accent">
+    <div class="sjia-card-icon">📖</div>
+    <h3>Corbin and the Helpers Inside His Body</h3>
+    <p>A picture book that helps children, classmates, and educators understand sJIA in simple, hopeful terms.</p>
+    <a href="/book/" class="sjia-card-link">Join the waitlist →</a>
+  </div>
+  <div class="sjia-card">
+    <div class="sjia-card-icon">🔗</div>
+    <h3>Resources</h3>
+    <p>Curated links to medical organizations, advocacy groups, school tools, and anti-inflammatory diet guidance.</p>
+    <a href="/resources/" class="sjia-card-link">Browse resources →</a>
+  </div>
+</div>
+
+{{/* Book teaser */}}
+<section class="sjia-book-section">
+  <div class="sjia-book-inner">
+    <img src="/images/book-placeholder.webp" alt="Corbin and the Helpers Inside His Body — children's book cover" class="sjia-book-cover">
+    <div class="sjia-book-copy">
+      <span class="coming-soon-badge">Coming Soon</span>
+      <h2>The book we <em>needed</em> didn't exist.<br>So we wrote it.</h2>
+      <p>When Corbin returned to school on high-dose steroids and classmates didn't understand why he looked different, we searched for a book to help explain sJIA. We couldn't find one — so we wrote <em>Corbin and the Helpers Inside His Body</em>, a picture book for children, families, and educators navigating sJIA together.</p>
+      {{ partial "waitlist-form.html" (dict "context" "home") }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
