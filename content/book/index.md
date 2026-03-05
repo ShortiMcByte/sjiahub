@@ -1,6 +1,6 @@
 ---
 title: "Corbin and the Helpers Inside His Body: A Children's Book About sJIA"
-description: "A picture book for children, families, and educators that explains systemic juvenile idiopathic arthritis in simple, hopeful terms. Join the waitlist for our upcoming publication."
+description: "A picture book for children, families, and educators that explains systemic juvenile idiopathic arthritis in simple, hopeful terms. Coming soon."
 keywords: ["sJIA children's book", "juvenile arthritis book for kids", "explaining sJIA to children", "Corbin and the Helpers", "autoinflammatory disease picture book"]
 summary: "A picture book that helps children, classmates, and educators understand sJIA, coming soon."
 featured_image: "images/book-placeholder.webp"
@@ -10,7 +10,7 @@ faq:
   - q: "Why was this book written?"
     a: "When Corbin was diagnosed with sJIA in 2024, his family searched for a book to help explain his condition to classmates and teachers. No such book existed, so they wrote one, the book they needed but couldn't find."
   - q: "When will the book be available?"
-    a: "The book is currently in pre-publication. Join the waitlist to be notified the moment it becomes available."
+    a: "The book is currently in pre-publication. Check back soon for updates on availability."
 ---
 
 <span class="coming-soon-badge">Coming Soon</span>
@@ -40,11 +40,9 @@ The book covers:
 
 The book is written for children, but it's equally valuable for teachers, school nurses, and classmates who want to understand what a friend with sJIA is going through.
 
-## Join the Waitlist
+## Coming Soon
 
-Be the first to know when the book is available.
-
-{{< waitlist context="book" >}}
+We're setting up our email list and will have a waitlist ready shortly. Check back soon to be the first to know when the book is available.
 
 ## About the Author
 

@@ -169,7 +169,7 @@ Save or share our printable anti-inflammatory food card, a quick visual guide to
 
 ## Recipes From Our Family
 
-Coming soon! We are putting together a collection of the specific recipes that became regulars in our house, the ones Corbin actually asked for again, that met our anti-inflammatory guidelines, and that a tired parent could actually make. Check back for updates, or join our email list to be notified when they are posted.
+Coming soon! We are putting together a collection of the specific recipes that became regulars in our house, the ones Corbin actually asked for again, that met our anti-inflammatory guidelines, and that a tired parent could actually make. Check back for updates.
 
 ## Resources to Learn More
 
