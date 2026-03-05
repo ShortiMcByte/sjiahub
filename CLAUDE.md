@@ -59,6 +59,9 @@ Do NOT use AndrewPhebus account (that is the andrewphebus.com personal site).
 - sjiaMailchimpAPIKey: set as env var in Cloudflare Pages dashboard (not yet configured)
 - **Mailchimp data center:** us18
 - **Welcome email template ID:** 11811742 ("SJIAHelp Welcome Email")
+- **Classic automation workflow ID:** `05282f2dec` ("SJIAHelp Welcome Series", status: draft)
+- **Automation email ID:** `2b8a6337b1` (trigger: immediately on subscribe)
+- **Note:** `singleWelcome` is the only workflow_type that works on free tier. Template must be assigned in UI, not API.
 
 ## SEO
 
