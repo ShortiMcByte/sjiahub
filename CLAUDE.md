@@ -7,7 +7,7 @@ Hugo + Congo website for sjiahelp.com — a resource hub for families and educat
 ## Key Facts
 
 - **Domain:** sjiahelp.com
-- **GitHub Repo:** https://github.com/ShortiMcByte/sjiahub (under ShortiMcByte account)
+- **GitHub Repo:** https://github.com/ShortiMcByte/sjiahelp (repo name kept as sjiahub — rename via GitHub UI if desired)
 - **Hosting:** Cloudflare Pages
 - **Build command:** `hugo --minify`
 - **Output dir:** `public`
@@ -29,7 +29,7 @@ Do NOT use AndrewPhebus account (that is the andrewphebus.com personal site).
 ## Brand
 
 - **Colors:** Purple primary (#6d28d9), amber accent (#f59e0b)
-- **Color scheme file:** `assets/css/schemes/sjiahub.css` (named sjiahub but contains purple values)
+- **Color scheme file:** `assets/css/schemes/sjiahelp.css`
 - **Logo:** Inline SVG in `layouts/_partials/logo.html` — purple shield + amber star + "SJIAHelp" wordmark. Override bypasses Congo's `resources.Get` (which fails on SVGs).
 - **Custom CSS:** `assets/css/custom.css`
 
@@ -89,7 +89,7 @@ These are candidates for future content pages or downloadable resources.
 
 ## Cloudflare Pages — Still Needed
 
-- [ ] Connect Cloudflare Pages to ShortiMcByte/sjiahub
+- [ ] Connect Cloudflare Pages to ShortiMcByte/sjiahelp (or new repo name if renamed)
 - [ ] Set env vars: `HUGO_VERSION=0.155.3`, `sjiaMailchimpAPIKey`
 - [ ] Enable submodule cloning in build settings
 - [ ] Create Mailchimp audience for sjiahelp.com, update listId + dc in subscribe.js

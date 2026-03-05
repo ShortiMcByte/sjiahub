@@ -100,6 +100,31 @@
     font-weight: 600;
     border-top: 1px solid #f0ecf9;
   }
+  @media print {
+    @page { margin: 0; size: letter portrait; }
+    body {
+      background: #fff;
+      padding: 0;
+      min-height: unset;
+      display: block;
+    }
+    .card {
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      page-break-inside: avoid;
+    }
+    .card-header { padding: 20px 24px 16px; }
+    .card-header h1 { font-size: 22px; }
+    .pullquote { margin: 20px 24px 0; padding: 18px; font-size: 14px; }
+    .facts-grid { padding: 18px 24px 20px; gap: 10px; }
+    .fact-tile { padding: 12px; }
+    .fact-tile .fact-icon { font-size: 22px; }
+    .fact-tile strong { font-size: 13px; }
+    .fact-tile span.desc { font-size: 11px; }
+    .share-note { padding: 12px 24px; font-size: 12px; }
+    .footer { padding: 10px 24px; }
+  }
 </style>
 </head>
 <body>

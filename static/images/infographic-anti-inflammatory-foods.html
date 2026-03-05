@@ -120,6 +120,28 @@
       border-bottom: 1px solid #e5e7eb;
     }
   }
+  @media print {
+    @page { margin: 0; size: letter portrait; }
+    body {
+      background: #fff;
+      padding: 0;
+      min-height: unset;
+      display: block;
+    }
+    .card {
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      page-break-inside: avoid;
+    }
+    .card-header { padding: 20px 24px 14px; }
+    .card-header h1 { font-size: 22px; }
+    .col { padding: 16px 20px 20px; }
+    .food-list { gap: 5px; }
+    .food-list li { font-size: 13px; }
+    .disclaimer { padding: 12px 24px; font-size: 12px; }
+    .footer { padding: 10px 24px; }
+  }
 </style>
 </head>
 <body>
